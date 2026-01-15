@@ -1,17 +1,22 @@
 import { Stack } from 'expo-router';
 
-
 export default function RootLayout() {
   return (
-    <Stack screenOptions={{ headerTitleStyle: { fontWeight: 'bold' } }}>
-      {/* The main tab group */}
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    <Stack screenOptions={{ headerShown: false }}>
+      {/* 1. මුලින්ම Splash Screen (index) */}
+      <Stack.Screen name="index" /> 
       
-      {/* Individual pages outside the tabs */}
-      <Stack.Screen name="details/[id]" options={{ title: 'Destination' }} />
-      <Stack.Screen name="booking" options={{ presentation: 'modal', title: 'Book Your Trip' }} />
-      <Stack.Screen name="map" options={{ title: 'Explore Map' }} />
-      <Stack.Screen name="notifications" options={{ title: 'Notifications' }} />
+      {/* 2. ඉන්පසු Onboarding */}
+      <Stack.Screen name="onboarding" />
+      
+      {/* 3. Onboarding එකෙන් පසු Login */}
+      <Stack.Screen name="login" />
+      
+      {/* 4. Login එකෙන් පසු Register (Signup) */}
+      <Stack.Screen name="signup" />
+      
+      {/* 5. අවසානයේ ප්‍රධාන App එක (Tabs) */}
+      <Stack.Screen name="(tabs)" />
     </Stack>
   );
 }
